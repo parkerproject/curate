@@ -4,33 +4,33 @@
 
   <div class="row">
       <div class="col-md-4">
-        <form name="fetchitems" novalidate ng-submit="fetchitems()">
+        <form name="fetchitems" novalidate ng-controller="MainCtrl">
          <div class="form-group">
             <label for="title">Title</label>
-            <input type="text" class="form-control" id="title" placeholder="Enter title" ng-model="title">
+    <input type="text" class="form-control" id="title" placeholder="Enter title" ng-model="formInfo.title">
          </div>
 
          <div class="form-group">
             <label>Description</label>
-            <textarea class="form-control" rows="3" ng-description="description"></textarea>
+            <textarea class="form-control" rows="3" ng-model="formInfo.description"></textarea>
          </div>
 
           <div class="form-group">
             <label for="keywords">Keywords(separate with comma)</label>
-            <input type="text" class="form-control" id="keywords" placeholder="Enter keywords" ng-keywords="keywords">
+            <input type="text" class="form-control" id="keywords" placeholder="Enter keywords" ng-model="formInfo.keywords">
          </div>
 
           <div class="form-group">
             <label for="price">Price(optional)</label>
-            <input type="text" class="form-control" id="price" placeholder="Enter price" ng-model="price">
+            <input type="text" class="form-control" id="price" placeholder="Enter price" ng-model="formInfo.price">
          </div>
 
          <div class="form-group">
-            <label for="exampleInputFile">Choose main image</label>
-            <input type="file" id="exampleInputFile">
+            <label for="imageUrl">Enter image URL</label>
+             <input type="text" class="form-control" id="imageUrl" placeholder="Enter url" ng-model="formInfo.imageUrl">
           </div>
 
-          <button type="button" class="btn btn-success">Find items</button>
+          <button type="button" class="btn btn-success" ng-click="sendData()">Find items</button>
         </form>
       </div>
 
