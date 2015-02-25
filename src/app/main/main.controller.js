@@ -11,15 +11,15 @@ angular.module('publishingSystem')
                 $scope.descriptionRequired = '';
                 $scope.imageRequired = '';
 
-                if (!scope.formInfo.title) {
+                if (!$scope.formInfo.title) {
                     $scope.titleRequired = 'Title is required';
                 }
 
-                if (!scope.formInfo.description) {
+                if (!$scope.formInfo.description) {
                     $scope.descriptionRequired = 'Description is required';
                 }
 
-                if (!scope.formInfo.imageUrl) {
+                if (!$scope.formInfo.imageUrl) {
                     $scope.imageRequired = 'Image is required';
                 }
             };
