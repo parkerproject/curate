@@ -1,6 +1,6 @@
 'use strict'
 
 angular.module('publishingSystem')
-    .directive('', function() {
+  .directive('', function() {
 
-    });
+  });

@@ -3,12 +3,13 @@
   <div ng-include="'components/navbar/navbar.html'"></div>
 
   <div class="row">
-      <div class="col-md-4">
-        <form name="fetchitems" novalidate ng-controller="MainCtrl">
+      <div class="col-md-12">
+        <form name="fetchitems" novalidate ng-controller="MainCtrl" id="form">
       <div class="error">
         <span ng-show="titleRequired" class="text-danger">{{titleRequired}}</span>
         <span ng-show="descriptionRequired" class="text-danger">{{descriptionRequired}}</span>
         <span ng-show="imageRequired" class="text-danger">{{imageRequired}}</span>
+        <span ng-show="cityRequired" class="text-danger">{{cityRequired}}</span>
      </div>
          <div class="form-group">
             <label for="title">Title</label>
@@ -21,34 +22,60 @@
          </div>
 
           <div class="form-group">
-            <label for="keywords">Keywords(separate with comma)</label>
+            <label for="keywords">Keyword</label>
             <input type="text" class="form-control" id="keywords" placeholder="Enter keywords" ng-model="formInfo.keywords">
          </div>
 
           <div class="form-group">
-            <label for="price">Price(optional)</label>
-            <input type="text" class="form-control" id="price" placeholder="Enter price" ng-model="formInfo.price">
+            <div class="row">
+                <div class="col-md-12">
+                    <label>Select or Enter price(optional)</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <select ng-model="formInfo.SelectPrice" class="price">
+                        <option value="less than $25">less than $25</option>
+                        <option value="less than $50">less than $50</option>
+                        <option value="less than $75">less than $75</option>
+                        <option value="over $75">over $75</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" id="price" placeholder="Enter price" ng-model="formInfo.EnterPrice" />
+                </div>
+            </div>
          </div>
 
          <div class="form-group">
-            <label for="imageUrl">Enter image URL</label>
+            <label for="city">City</label>
+             <select ng-model="formInfo.city">
+                <option value="Atlanta">Atlanta</option>
+                <option value="Boston">Boston</option>
+                <option value="Chicago">Chicago</option>
+                <option value="Dallas">Dallas</option>
+                <option value="Houston">Houston</option>
+                <option value="Los Angeles">Los Angeles</option>
+                <option value="Las Vegas">Las Vegas</option>
+                <option value="Miami">Miami</option>
+                <option value="New York">New York</option>
+                <option value="Philadelphia">Philadelphia</option>
+                <option value="San Diego">San Diego</option>
+                <option value="San Francisco">San Francisco</option>
+                <option value="Seattle">Seattle</option>
+                <option value="Washington DC">Washington DC</option>
+                <option value="Phoenix">Phoenix</option>
+             </select>
+         </div>
+
+         <div class="form-group">
+            <label for="imageUrl">Feature image URL</label>
              <input type="text" class="form-control" id="imageUrl" placeholder="Enter url" ng-model="formInfo.imageUrl">
           </div>
 
           <button type="button" class="btn btn-success" ng-click="sendData()">Find items</button>
         </form>
       </div>
-
-    <div class="col-md-8">
-      <div class="thumbnail" ng-repeat="awesomeThing in awesomeThings | orderBy:'rank'">
-        <img class="pull-right" ng-src="assets/images/{{awesomeThing.logo}}" alt="{{awesomeThing.title}}">
-        <div class="caption">
-          <h3>{{awesomeThing.title}}</h3>
-          <p>{{awesomeThing.description}}</p>
-          <p><a ng-href="{{awesomeThing.url}}">{{awesomeThing.url}}</a></p>
-        </div>
-      </div>
-    </div>
   </div>
 
 

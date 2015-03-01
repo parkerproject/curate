@@ -10,6 +10,7 @@ angular.module('publishingSystem')
                 $scope.titleRequired = '';
                 $scope.descriptionRequired = '';
                 $scope.imageRequired = '';
+                $scope.cityRequired = '';
 
                 if (!$scope.formInfo.title) {
                     $scope.titleRequired = 'Title is required';
@@ -21,6 +22,10 @@ angular.module('publishingSystem')
 
                 if (!$scope.formInfo.imageUrl) {
                     $scope.imageRequired = 'Image is required';
+                }
+
+                if (!$scope.formInfo.city) {
+                    $scope.cityRequired = 'City is required';
                 }
             };
 
