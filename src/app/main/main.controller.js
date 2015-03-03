@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('publishingSystem')
-    .controller('MainCtrl', ['$scope',
-        function($scope) {
+    .controller('MainCtrl', ['$scope', 'curateServices',
+        function($scope, curateServices) {
             $scope.awesomeThings = [];
             $scope.formInfo = {};
 
@@ -11,6 +11,7 @@ angular.module('publishingSystem')
                 $scope.descriptionRequired = '';
                 $scope.imageRequired = '';
                 $scope.cityRequired = '';
+                $scope.keywordRequired = '';
 
                 if (!$scope.formInfo.title) {
                     $scope.titleRequired = 'Title is required';
@@ -27,10 +28,22 @@ angular.module('publishingSystem')
                 if (!$scope.formInfo.city) {
                     $scope.cityRequired = 'City is required';
                 }
+
+                if (!$scope.formInfo.keyword) {
+                    $scope.keywordRequired = 'Keyword is required';
+                }
+
+                curateServices.events($scope.formInfo)
+                    .success(function(data, success, headers) {
+                        console.log(data);
+                    });
+                //console.log($scope.events);
             };
 
-            angular.forEach($scope.awesomeThings, function(awesomeThing) {
-                awesomeThing.rank = Math.random();
-            });
+
+
+            // angular.forEach($scope.awesomeThings, function(awesomeThing) {
+            //     awesomeThing.rank = Math.random();
+            // });
         }
     ]);
