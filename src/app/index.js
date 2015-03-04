@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('publishingSystem', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngRoute'])
+angular.module('publishingSystem', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngRoute', 'angular-wurfl-image-tailor'])
     .config(function($routeProvider) {
         $routeProvider
             .when('/', {

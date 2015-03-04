@@ -3,9 +3,13 @@ angular.module('publishingSystem')
     .factory('curateServices', function($http) {
         var runRequest = function(options) {
             var searchUrl = 'http://api.dealsbox.co/deals/search';
-            searchUrl = searchUrl + '?q=' + options.keyword + '&city=' + options.city;
-            if (options.price) {
-                searchUrl = searchUrl + '&price=' + options.price;
+            searchUrl = searchUrl + '?limit=10&q=' + options.keyword + '&city=' + options.city;
+            if (options.SelectPrice) {
+                searchUrl = searchUrl + '&price=' + options.SelectPrice;
+            }
+
+            if (options.category) {
+                searchUrl = searchUrl + '&category=' + encodeURIComponent(options.category);
             }
             return $http({
                 method: 'GET',

@@ -12,6 +12,7 @@ angular.module('publishingSystem')
                 $scope.imageRequired = '';
                 $scope.cityRequired = '';
                 $scope.keywordRequired = '';
+                $scope.categoryRequired = '';
 
                 if (!$scope.formInfo.title) {
                     $scope.titleRequired = 'Title is required';
@@ -35,9 +36,9 @@ angular.module('publishingSystem')
 
                 curateServices.events($scope.formInfo)
                     .success(function(data, success, headers) {
-                        console.log(data);
+                        $scope.deals = data;
                     });
-                //console.log($scope.events);
+
             };
 
 
