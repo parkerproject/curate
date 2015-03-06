@@ -4,7 +4,7 @@
                     <table width="100%" cellspacing="0" cellpadding="0" border="0">
                         <tr>
                             <td><img src="https://dl.dropbox.com/s/yrkadro5tb6hfcf/newsletter_logo.png?dl=0" alt="" /></td>
-                            <td align="right"><a href=""><font color="#ce3f21">Share on Facebook</font></a></td>
+                            <td align="right"><a href="https://www.facebook.com/dealsboxapp"><font color="#ce3f21">Share on Facebook</font></a></td>
                         </tr>
                         <tr><td style="line-height: 10px;height:10px;"><!-- --></td></tr>
                     </table>
@@ -16,15 +16,29 @@
                         </tr>
                     <tr><td><font size="5" color="black">{{ formInfo.title }}</font></td></tr>
                         <tr><td>
-                            <p>{{ formInfo.description }}</p>
+                            <p style="line-height:normal;font-size:16px;">{{ formInfo.description }}</p>
                         </td></tr>
                     </table>
                         <!-- data -->
                     <div ng-repeat="deal in deals">
                     <table cellspacing="0" cellpadding="0" border="0" width="100%">
                     <tr>
-                    <td style="width:124px;height:130px;"><span style="width:124px;height:130px;overflow:hidden;display:inline-block"><img src="{{deal.small_image}}" alt="{{deal.title}}" style="display:block;"></span></td>
-                    <td valign="top"><span style="text-transform:capitalize;">&nbsp;&nbsp;<font color="#ce3f21">trending!</font> <font size="4"><b>{{deal.title}}</b></font></span><br /><span>&nbsp;&nbsp;<img src="https://dl.dropbox.com/s/we9ywjfhz4w2p85/yelp_review.png?dl=0" valign="top"> 1000 reviews</span><br /><span>&nbsp;&nbsp;{{deal.merchant_address}}</span><br /><span style="font-weight:bold;font-size:14px;">&nbsp;&nbsp;Price: ${{deal.new_price}}</span></td>
+                <td style="width:124px;height:130px;"><span style="width:124px;height:130px;overflow:hidden;display:inline-block"><img src="{{deal.small_image}}" alt="{{deal.title}}" style="display:block;"></span></td>
+                <td width="2%"><!-- --></td>
+                <td>
+                    <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                <tr><span style="text-transform:capitalize;line-height:normal;"><font size="4"><a href="{{deal.url}}" style="color:black;">{{deal.title}}</a></font></span></tr>
+                        <tr>
+                         <td><img src="https://dl.dropbox.com/s/we9ywjfhz4w2p85/yelp_review.png?dl=0" valign="top"> 1000 reviews</td>
+                        </tr>
+                        <tr>
+                        <td>{{deal.merchant_address}}</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight:bold;font-size:14px;"><a href="{{deal.url}}" style="color:#ce3f21;">buy@{{deal.provider_name}} ${{deal.new_price}}</a></td>
+                        </tr>
+                    </table>
+                    </td>
                     </tr>
                     </table>
 
